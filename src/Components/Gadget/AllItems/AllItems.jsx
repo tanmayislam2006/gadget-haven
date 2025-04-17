@@ -1,8 +1,10 @@
 import React, { use } from "react";
 import { AllDataContext } from "../../Home/home";
 import Image from "../../../assets/banner.jpg";
+import { useNavigate } from "react-router";
 
 const AllItems = () => {
+    const nevigate=useNavigate('')
   const [allData] = use(AllDataContext);
 
   return (
@@ -16,7 +18,7 @@ const AllItems = () => {
             <h3 className="font-bold my-2 text-xl">{item.product_title}</h3>
             <p className="my-2 text-lg text-gray-600">$ {item.price}</p>
             <div className=" w-3/5">
-              <button className="w-full py-2 px-4 cursor-pointer border-2 border-purple-600  text-purple-600 font-bold rounded-3xl">
+              <button onClick={()=>nevigate(`/${item.product_id}`)}  className="w-full py-2 px-4 cursor-pointer border-2 border-purple-600  text-purple-600 font-bold rounded-3xl">
                 Details
               </button>
             </div>
