@@ -25,7 +25,7 @@ const DasBoard = () => {
                   active === "cart"
                     ? "bg-white text-purple-600"
                     : "text-white border-white "
-                }font-bold rounded-4xl border  px-6 py-2 `}
+                }font-bold rounded-4xl border  px-6 py-2 cursor-pointer `}
               >
                 Cart
               </button>
@@ -37,7 +37,7 @@ const DasBoard = () => {
                   active === "wishlist"
                     ? "bg-white text-purple-600"
                     : "text-white border-white "
-                }font-bold rounded-4xl border  px-6 py-2 `}
+                }font-bold rounded-4xl border  px-6 py-2 cursor-pointer `}
               >
                 Wishlist
               </button>
