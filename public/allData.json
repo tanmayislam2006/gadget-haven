@@ -1,0 +1,342 @@
+[
+    {
+      "product_id": "P001",
+      "product_title": "Apple iPhone 15 Pro Max",
+      "product_image": "https://example.com/iphone15promax.jpg",
+      "category": "iPhone",
+      "price": 1299,
+      "description": "Experience the ultimate smartphone with the iPhone 15 Pro Max.",
+      "specification": [
+        "6.7-inch Super Retina XDR display",
+        "A17 Bionic chip",
+        "Triple-camera system (48MP Main, 12MP Telephoto, 12MP Ultrawide)",
+        "LiDAR Scanner",
+        "Up to 2TB storage"
+      ],
+      "availability": true,
+      "rating": 4.8
+    },
+    {
+      "product_id": "P002",
+      "product_title": "Samsung Galaxy S23 Ultra",
+      "product_image": "https://example.com/s23ultra.jpg",
+      "category": "Phones",
+      "price": 1199,
+      "description": "Professional-grade camera in a smartphone.",
+      "specification": [
+        "6.8-inch Dynamic AMOLED 2X",
+        "Snapdragon 8 Gen 2",
+        "200MP main camera",
+        "S Pen support",
+        "5000mAh battery"
+      ],
+      "availability": true,
+      "rating": 4.7
+    },
+    {
+      "product_id": "P003",
+      "product_title": "MacBook Pro 16-inch",
+      "product_image": "https://example.com/macbookpro16.jpg",
+      "category": "MacBook",
+      "price": 2499,
+      "description": "Supercharged for pros with M2 Pro or M2 Max chip.",
+      "specification": [
+        "16.2-inch Liquid Retina XDR display",
+        "M2 Pro or M2 Max chip",
+        "Up to 96GB unified memory",
+        "Up to 8TB SSD storage",
+        "1080p FaceTime HD camera"
+      ],
+      "availability": true,
+      "rating": 4.9
+    },
+    {
+      "product_id": "P004",
+      "product_title": "Dell XPS 15",
+      "product_image": "https://example.com/dellxps15.jpg",
+      "category": "Laptops",
+      "price": 1699,
+      "description": "Premium Windows laptop with stunning display.",
+      "specification": [
+        "15.6-inch 4K UHD+ display",
+        "Intel Core i9-13900H",
+        "NVIDIA GeForce RTX 4070",
+        "32GB DDR5 RAM",
+        "1TB NVMe SSD"
+      ],
+      "availability": true,
+      "rating": 4.6
+    },
+    {
+      "product_id": "P005",
+      "product_title": "Apple Watch Series 9",
+      "product_image": "https://example.com/watchseries9.jpg",
+      "category": "Smart Watches",
+      "price": 399,
+      "description": "The most advanced Apple Watch yet.",
+      "specification": [
+        "45mm or 41mm case size",
+        "S9 SiP chip",
+        "Retina Always-On display",
+        "ECG and blood oxygen apps",
+        "Up to 18 hours battery life"
+      ],
+      "availability": true,
+      "rating": 4.8
+    },
+    {
+      "product_id": "P006",
+      "product_title": "AirPods Pro (2nd Gen)",
+      "product_image": "https://example.com/airpodspro2.jpg",
+      "category": "Accessories",
+      "price": 249,
+      "description": "Active Noise Cancellation for immersive sound.",
+      "specification": [
+        "H2 chip",
+        "Adaptive Audio",
+        "Up to 6 hours listening time",
+        "MagSafe Charging Case",
+        "Sweat and water resistant"
+      ],
+      "availability": true,
+      "rating": 4.7
+    },
+    {
+      "product_id": "P007",
+      "product_title": "iPad Pro 12.9-inch",
+      "product_image": "https://example.com/ipadpro129.jpg",
+      "category": "Accessories",
+      "price": 1099,
+      "description": "The ultimate iPad experience with M2 chip.",
+      "specification": [
+        "12.9-inch Liquid Retina XDR display",
+        "M2 chip",
+        "ProMotion technology",
+        "Face ID",
+        "Thunderbolt / USB 4 port"
+      ],
+      "availability": true,
+      "rating": 4.8
+    },
+    {
+      "product_id": "P008",
+      "product_title": "Samsung Galaxy Watch 6",
+      "product_image": "https://example.com/galaxywatch6.jpg",
+      "category": "Smart Watches",
+      "price": 299,
+      "description": "Advanced health monitoring in a sleek design.",
+      "specification": [
+        "44mm or 40mm case size",
+        "Exynos W930",
+        "Super AMOLED display",
+        "Bioelectrical impedance analysis",
+        "IP68 water resistance"
+      ],
+      "availability": true,
+      "rating": 4.5
+    },
+    {
+      "product_id": "P009",
+      "product_title": "MacBook Air 15-inch",
+      "product_image": "https://example.com/macbookair15.jpg",
+      "category": "MacBook",
+      "price": 1299,
+      "description": "Impressively big. Impossibly thin.",
+      "specification": [
+        "15.3-inch Liquid Retina display",
+        "M2 chip",
+        "Up to 18 hours battery life",
+        "1080p FaceTime HD camera",
+        "MagSafe charging"
+      ],
+      "availability": true,
+      "rating": 4.7
+    },
+    {
+      "product_id": "P010",
+      "product_title": "Google Pixel 8 Pro",
+      "product_image": "https://example.com/pixel8pro.jpg",
+      "category": "Phones",
+      "price": 999,
+      "description": "The most helpful Pixel yet, powered by Google AI.",
+      "specification": [
+        "6.7-inch LTPO OLED",
+        "Google Tensor G3",
+        "Triple rear camera system",
+        "Face Unlock + Fingerprint",
+        "IP68 water resistance"
+      ],
+      "availability": true,
+      "rating": 4.6
+    },
+    {
+      "product_id": "P011",
+      "product_title": "Magic Keyboard",
+      "product_image": "https://example.com/magickeyboard.jpg",
+      "category": "Accessories",
+      "price": 299,
+      "description": "Keyboard with Touch ID for Mac.",
+      "specification": [
+        "Full-size layout with numeric keypad",
+        "Built-in Touch ID",
+        "Scissor mechanism",
+        "Rechargeable battery",
+        "Silver or Space Gray"
+      ],
+      "availability": true,
+      "rating": 4.4
+    },
+    {
+      "product_id": "P012",
+      "product_title": "HP Spectre x360",
+      "product_image": "https://example.com/hpspectre.jpg",
+      "category": "Laptops",
+      "price": 1499,
+      "description": "Premium convertible laptop with stunning design.",
+      "specification": [
+        "13.5-inch 3K2K OLED touch display",
+        "Intel Core i7-1355U",
+        "16GB LPDDR5 RAM",
+        "1TB PCIe NVMe SSD",
+        "360° hinge design"
+      ],
+      "availability": true,
+      "rating": 4.5
+    },
+    {
+      "product_id": "P013",
+      "product_title": "iPhone 14",
+      "product_image": "https://example.com/iphone14.jpg",
+      "category": "iPhone",
+      "price": 799,
+      "description": "A total powerhouse.",
+      "specification": [
+        "6.1-inch Super Retina XDR display",
+        "A15 Bionic chip",
+        "Advanced dual-camera system",
+        "Ceramic Shield front",
+        "IP68 water resistance"
+      ],
+      "availability": true,
+      "rating": 4.6
+    },
+    {
+      "product_id": "P014",
+      "product_title": "Apple Watch SE",
+      "product_image": "https://example.com/watchse.jpg",
+      "category": "Smart Watches",
+      "price": 249,
+      "description": "An essential Apple Watch at an incredible price.",
+      "specification": [
+        "44mm or 40mm case size",
+        "S8 SiP chip",
+        "Retina display",
+        "Optical heart sensor",
+        "Water resistant 50m"
+      ],
+      "availability": true,
+      "rating": 4.4
+    },
+    {
+      "product_id": "P015",
+      "product_title": "Mac Mini",
+      "product_image": "https://example.com/macmini.jpg",
+      "category": "MacBook",
+      "price": 599,
+      "description": "Supercharged by M2 chip in a compact design.",
+      "specification": [
+        "M2 chip",
+        "8-core CPU",
+        "10-core GPU",
+        "8GB unified memory",
+        "256GB SSD storage"
+      ],
+      "availability": true,
+      "rating": 4.5
+    },
+    {
+      "product_id": "P016",
+      "product_title": "OnePlus 11",
+      "product_image": "https://example.com/oneplus11.jpg",
+      "category": "Phones",
+      "price": 699,
+      "description": "Fast and Smooth flagship killer.",
+      "specification": [
+        "6.7-inch Fluid AMOLED",
+        "Snapdragon 8 Gen 2",
+        "Triple Hasselblad camera",
+        "100W fast charging",
+        "Alert Slider"
+      ],
+      "availability": true,
+      "rating": 4.5
+    },
+    {
+      "product_id": "P017",
+      "product_title": "Logitech MX Master 3S",
+      "product_image": "https://example.com/mxmaster3s.jpg",
+      "category": "Accessories",
+      "price": 99,
+      "description": "Advanced wireless mouse for creatives.",
+      "specification": [
+        "8000 DPI sensor",
+        "Quiet clicks",
+        "MagSpeed scrolling",
+        "Multi-device pairing",
+        "70-day battery life"
+      ],
+      "availability": true,
+      "rating": 4.7
+    },
+    {
+      "product_id": "P018",
+      "product_title": "Lenovo Yoga 9i",
+      "product_image": "https://example.com/yoga9i.jpg",
+      "category": "Laptops",
+      "price": 1599,
+      "description": "Premium convertible with rotating soundbar.",
+      "specification": [
+        "14-inch 4K OLED touch display",
+        "Intel Core i7-1360P",
+        "16GB LPDDR5 RAM",
+        "1TB PCIe SSD",
+        "B&O rotating soundbar"
+      ],
+      "availability": true,
+      "rating": 4.6
+    },
+    {
+      "product_id": "P019",
+      "product_title": "iPhone SE",
+      "product_image": "https://example.com/iphonese.jpg",
+      "category": "iPhone",
+      "price": 429,
+      "description": "Lots to love. Less to spend.",
+      "specification": [
+        "4.7-inch Retina HD display",
+        "A15 Bionic chip",
+        "Single 12MP camera",
+        "Touch ID",
+        "IP67 water resistance"
+      ],
+      "availability": true,
+      "rating": 4.3
+    },
+    {
+      "product_id": "P020",
+      "product_title": "Garmin Venu 3",
+      "product_image": "https://example.com/venu3.jpg",
+      "category": "Smart Watches",
+      "price": 449,
+      "description": "Advanced health features and AMOLED display.",
+      "specification": [
+        "45mm or 41mm case size",
+        "AMOLED display",
+        "Sleep coach",
+        "HRV status tracking",
+        "Up to 14 days battery"
+      ],
+      "availability": true,
+      "rating": 4.6
+    }
+  ]
