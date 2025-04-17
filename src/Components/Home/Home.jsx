@@ -5,7 +5,6 @@ import { useLoaderData } from "react-router";
 export const AllDataContext = createContext();
 const Home = () => {
   const alldata = useLoaderData();
-  //   console.log(alldata);
   const [allData, setAllData] = useState(alldata);
   return (
     <div>
