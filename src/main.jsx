@@ -8,6 +8,8 @@ import ProductDetails from "./Page/ProductDetails/ProductDetails";
 import DasBoard from "./Page/DashBoard/DasBoard";
 import Cart from "./Components/Cart/Cart";
 import { ToastContainer } from "react-toastify";
+import WishList from "./Components/WishList/WishList";
+import Statistics from "./Page/Statistics/Statistics";
 
 const router = createBrowserRouter([
   {
@@ -19,12 +21,19 @@ const router = createBrowserRouter([
         loader: () => fetch("allData.json"),
         element: <Home />,
       },
-      { path: "/statistics", element: <h1>Statistics</h1> },
-      { path: "/dashboard", Component:DasBoard,children:[
-        {path:'cart', Component:Cart},
-        {path:'wishlist', element:<h1>whislist</h1>}
-
-      ]},
+      {
+        path: "/statistics",
+        Component: Statistics,
+        loader: () => fetch("allData.json"),
+      },
+      {
+        path: "/dashboard",
+        Component: DasBoard,
+        children: [
+          { path: "cart", Component: Cart },
+          { path: "wishlist", Component: WishList },
+        ],
+      },
       {
         path: "/:productId",
         loader: () => fetch("allData.json"),

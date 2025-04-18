@@ -6,12 +6,13 @@ export const AllDataContext = createContext();
 const Home = () => {
   const alldata = useLoaderData();
   const [allData, setAllData] = useState(alldata);
+  const [fillterData,setFillterData]=useState(allData)
   return (
     <div>
-      <AllDataContext value={[allData, setAllData]}>
-        <Hero></Hero>
-        <Gadget></Gadget>
-      </AllDataContext>
+      <AllDataContext.Provider value={[allData, setAllData, fillterData, setFillterData]}>
+        <Hero />
+        <Gadget />
+      </AllDataContext.Provider>
     </div>
   );
 };

@@ -5,11 +5,11 @@ import { useNavigate } from "react-router";
 
 const AllItems = () => {
     const nevigate=useNavigate('')
-  const [allData] = use(AllDataContext);
-
+  const [fillterData] = use(AllDataContext);
+  console.log(fillterData);
   return (
     <div className="col-span-10 grid grid-cols-3 gap-5">
-      {allData.map((item, index) => (
+      {fillterData.map((item, index) => (
         <div key={index} className="p-2  rounded-lg shadow py-5">
           <div className=" rounded-lg">
             <img src={Image} className="rounded-lg w-full h-full " />
