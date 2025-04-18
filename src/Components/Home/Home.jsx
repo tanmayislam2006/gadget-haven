@@ -8,7 +8,7 @@ const Home = () => {
   const [currentData, setCurrentData] = useState(allData);
   return (
     <div>
-      <AllDataContext.Provider value={[allData, currentData, setCurrentData]}>
+      <AllDataContext.Provider value={{allData, currentData, setCurrentData}}>
         <Hero />
         <Gadget />
       </AllDataContext.Provider>

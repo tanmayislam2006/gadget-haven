@@ -34,20 +34,18 @@ const Category = () => {
   ];
 
   const [activeCategory, setActiveCategory] = useState(0);
-  const [allData, ,setCurrentData] = use(AllDataContext);
+  const { allData, setCurrentData } = use(AllDataContext);
   const handleCategoryChange = (categoryName) => {
     if (categoryName === "All Products") {
       setCurrentData(allData);
       return;
-    }
-    else{
+    } else {
       const filertByCategory = allData.filter(
         (item) => item.category === categoryName
       );
 
-      setCurrentData(filertByCategory)
+      setCurrentData(filertByCategory);
     }
-
   };
   return (
     <div className="col-span-2">

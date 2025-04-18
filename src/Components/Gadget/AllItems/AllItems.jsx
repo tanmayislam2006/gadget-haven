@@ -5,7 +5,7 @@ import { useNavigate } from "react-router";
 
 const AllItems = () => {
     const nevigate=useNavigate('')
-  const [,currentData] = use(AllDataContext);
+  const {currentData}= use(AllDataContext);
   return (
     <div className="col-span-10 grid grid-cols-3 gap-5">
       {currentData.map((item, index) => (
