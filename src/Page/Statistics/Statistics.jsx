@@ -50,11 +50,11 @@ const Statistics = () => {
             <Legend />
             <Area
               type="monotone"
-              dataKey="rating"
+              dataKey="price"
               fill="#BF87EE"
               stroke="#BF87EE"
             />
-            {/* <Bar dataKey="price" barSize={20} fill="#9538E2" /> */}
+            <Bar dataKey="price" barSize={20} fill="#9538E2" />
           </ComposedChart>
         </ResponsiveContainer>
       </div>
