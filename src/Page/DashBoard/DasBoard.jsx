@@ -9,7 +9,7 @@ const DasBoard = () => {
       <div className="bg-purple-600 py-30 rounded-2xl">
         <div className="my-4 flex flex-col items-center">
           <h1 className="font-bold text-center text-2xl text-white">
-            Product Details
+          Dashboard
           </h1>
           <p className="my-3  text-center text-lg max-w-3xl text-white">
             Explore the latest gadgets that will take your experience to the
@@ -23,7 +23,7 @@ const DasBoard = () => {
                 onClick={() => setActive("cart")}
                 className={`${
                   active === "cart"
-                    ? "bg-white text-purple-600"
+                    ? "bg-white text-purple-600 border-0"
                     : "text-white border-white "
                 }font-bold rounded-4xl border  px-6 py-2 cursor-pointer `}
               >
@@ -35,7 +35,7 @@ const DasBoard = () => {
                 onClick={() => setActive("wishlist")}
                 className={`${
                   active === "wishlist"
-                    ? "bg-white text-purple-600"
+                    ? "bg-white text-purple-600 border-0"
                     : "text-white border-white "
                 }font-bold rounded-4xl border  px-6 py-2 cursor-pointer `}
               >

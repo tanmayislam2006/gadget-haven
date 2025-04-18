@@ -2,8 +2,10 @@ import { useState, useEffect } from "react";
 import { useLoaderData, useNavigate, useParams } from "react-router";
 import HeroImage from "../../assets/banner.jpg";
 import { toast } from "react-toastify";
+import { CiHeart } from "react-icons/ci";
 
 export const cartProduct = [];
+export const wishlist=[];
 
 const ProductDetails = () => {
   const navigate = useNavigate(""); // Fixed typo
@@ -27,11 +29,20 @@ const ProductDetails = () => {
       toast.error("Product already in cart");
     } else {
       cartProduct.push(product);
-      toast.success("Product already in cart");
+      toast.success("Product added  to cart successfully");
     }
-    console.log(cartProduct);
   };
-
+  const handleAddToWishlist=(product)=>{
+    const isProductInWishlist = wishlist.some(
+      (item) => item.product_id === product.product_id
+    );
+    if (isProductInWishlist) {
+      toast.error("Product already in wishlist");
+    } else {
+      wishlist.push(product);
+      toast.success("Product added  to wishlist successfully");
+    }
+  }
   return (
     <div className="bg-purple-600 py-30 rounded-2xl">
       <div className="my-4 flex flex-col items-center">
@@ -75,13 +86,18 @@ const ProductDetails = () => {
                   {details.rating}
                 </button>
               </div>
-              <div className="mt-3 flex justify-around gap-4">
+              <div className="mt-3 flex justify-evenly  gap-4">
                 <button
                   onClick={() => handleAddToCart(details)}
                   className="cursor-pointer px-4 py-2 rounded-xl text-white font-bold bg-purple-600"
                 >
                   Add To Cart
                 </button>
+                <div onClick={()=>handleAddToWishlist(details)} className="flex items-center p-3 cursor-pointer rounded-full border-1 border-gray-400">
+                  <button  className="cursor-pointer">
+                    <CiHeart size={20} />
+                  </button>
+                </div>
                 <button
                   onClick={() => navigate(-1)}
                   className="cursor-pointer px-4 py-2 rounded-xl text-white font-bold bg-purple-600"

@@ -1,18 +1,19 @@
 import React from "react";
-import { Link, NavLink } from "react-router";
+import { Link, NavLink, useNavigate } from "react-router";
 import { CiHeart } from "react-icons/ci";
 import { FiShoppingCart } from "react-icons/fi";
 
 const Navbar = () => {
+  const navigate=useNavigate("")
   return (
     <div className="w-full mx-auto bg-purple-50 py-4">
       <div className="flex justify-around items-center">
         {/* name and logo */}
-        <Link to="/">
-          <div className="">
+        
+          <div onClick={()=>navigate("/")}  className="cursor-pointer">
             <h3 className="text-xl font-bold">Gadget Heaven</h3>
           </div>
-        </Link>
+        
         {/* nav itmes */}
         <div className="">
           <ul className="flex gap-6">
