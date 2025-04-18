@@ -8,7 +8,7 @@ export const cartProduct = [];
 export const wishlist=[];
 
 const ProductDetails = () => {
-  const navigate = useNavigate(""); // Fixed typo
+  const navigate = useNavigate(""); 
   const { productId } = useParams();
   const alldata = useLoaderData();
   const [details, setDetails] = useState({});
@@ -22,7 +22,7 @@ const ProductDetails = () => {
   }, [alldata, productId]);
 
   const handleAddToCart = (product) => {
-    const isProductInCart = cartProduct.some(
+    const isProductInCart = cartProduct.find(
       (item) => item.product_id === product.product_id
     );
     if (isProductInCart) {
@@ -33,7 +33,7 @@ const ProductDetails = () => {
     }
   };
   const handleAddToWishlist=(product)=>{
-    const isProductInWishlist = wishlist.some(
+    const isProductInWishlist = wishlist.find(
       (item) => item.product_id === product.product_id
     );
     if (isProductInWishlist) {
