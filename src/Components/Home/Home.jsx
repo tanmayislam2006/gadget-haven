@@ -6,7 +6,6 @@ export const AllDataContext = createContext();
 const Home = () => {
   const allData = useLoaderData();
   const [currentData, setCurrentData] = useState(allData);
-  // const [fillterData,setFillterData]=useState(allData)
   return (
     <div>
       <AllDataContext.Provider value={[allData, currentData, setCurrentData]}>
