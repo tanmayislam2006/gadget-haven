@@ -1,5 +1,5 @@
 import React, { use, useState } from "react";
-import { AllDataContext } from "../../Home/home";
+import { AllDataContext } from "../../Home/Home";
 
 const Category = () => {
   const categories = [
@@ -34,10 +34,10 @@ const Category = () => {
   ];
 
   const [activeCategory, setActiveCategory] = useState(0);
-  const [allData,setAllData,fillterData,setFillterData] = use(AllDataContext);
+  const [allData, ,setCurrentData] = use(AllDataContext);
   const handleCategoryChange = (categoryName) => {
     if (categoryName === "All Products") {
-      setFillterData(allData);
+      setCurrentData(allData);
       return;
     }
     else{
@@ -45,7 +45,7 @@ const Category = () => {
         (item) => item.category === categoryName
       );
 
-      setFillterData(filertByCategory)
+      setCurrentData(filertByCategory)
     }
 
   };

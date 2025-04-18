@@ -4,12 +4,12 @@ import Gadget from "../Gadget/Gadget";
 import { useLoaderData } from "react-router";
 export const AllDataContext = createContext();
 const Home = () => {
-  const alldata = useLoaderData();
-  const [allData, setAllData] = useState(alldata);
-  const [fillterData,setFillterData]=useState(allData)
+  const allData = useLoaderData();
+  const [currentData, setCurrentData] = useState(allData);
+  // const [fillterData,setFillterData]=useState(allData)
   return (
     <div>
-      <AllDataContext.Provider value={[allData, setAllData, fillterData, setFillterData]}>
+      <AllDataContext.Provider value={[allData, currentData, setCurrentData]}>
         <Hero />
         <Gadget />
       </AllDataContext.Provider>

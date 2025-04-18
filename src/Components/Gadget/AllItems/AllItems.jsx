@@ -1,15 +1,14 @@
 import React, { use } from "react";
-import { AllDataContext } from "../../Home/home";
+import { AllDataContext } from "../../Home/Home";
 import Image from "../../../assets/banner.jpg";
 import { useNavigate } from "react-router";
 
 const AllItems = () => {
     const nevigate=useNavigate('')
-  const [fillterData] = use(AllDataContext);
-  console.log(fillterData);
+  const [,currentData] = use(AllDataContext);
   return (
     <div className="col-span-10 grid grid-cols-3 gap-5">
-      {fillterData.map((item, index) => (
+      {currentData.map((item, index) => (
         <div key={index} className="p-2  rounded-lg shadow py-5">
           <div className=" rounded-lg">
             <img src={Image} className="rounded-lg w-full h-full " />

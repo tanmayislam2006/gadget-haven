@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import Root from "./Page/Root/Root";
-import Home from "./Components/Home/home";
+import Home from "./Components/Home/Home";
 import ProductDetails from "./Page/ProductDetails/ProductDetails";
 import DasBoard from "./Page/DashBoard/DasBoard";
 import Cart from "./Components/Cart/Cart";
@@ -18,13 +18,13 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: () => fetch("allData.json"),
+        loader: () => fetch("/allData.json"),
         element: <Home />,
       },
       {
         path: "/statistics",
         Component: Statistics,
-        loader: () => fetch("allData.json"),
+        loader: () => fetch("/allData.json"),
       },
       {
         path: "/dashboard",
