@@ -1,7 +1,9 @@
-import React, { useState } from "react";
-import { Link, Outlet } from "react-router";
+import React, { createContext,  useState } from "react";
+import { Link, Outlet, useLoaderData } from "react-router";
+ export const AllDataForDashboardContext = createContext();
 
 const DasBoard = () => {
+  const allDataFromLoader = useLoaderData();
   const [active, setActive] = useState("");
 
   return (
@@ -9,7 +11,7 @@ const DasBoard = () => {
       <div className="bg-purple-600 py-30 rounded-2xl">
         <div className="my-4 flex flex-col items-center">
           <h1 className="font-bold text-center text-2xl text-white">
-          Dashboard
+            Dashboard
           </h1>
           <p className="my-3  text-center text-lg max-w-3xl text-white">
             Explore the latest gadgets that will take your experience to the
@@ -45,7 +47,9 @@ const DasBoard = () => {
           </div>
         </div>
       </div>
+      <AllDataForDashboardContext.Provider value={allDataFromLoader}>
       <Outlet></Outlet>
+      </AllDataForDashboardContext.Provider>
     </div>
   );
 };

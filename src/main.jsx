@@ -29,6 +29,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard",
+        loader: () => fetch("/allData.json"),
+        hydrateFallbackElement:<h2>Loading Data ...........</h2>,
         Component: DasBoard,
         children: [
           { path: "cart", Component: Cart },

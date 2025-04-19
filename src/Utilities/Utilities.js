@@ -1,4 +1,3 @@
-import { toast } from "react-toastify";
 
 const getAddItem = () => {
   const addedItem = localStorage.getItem("cartItems");
@@ -12,7 +11,6 @@ const getAddItem = () => {
 const addItem = (item) => {
   const addedItem = getAddItem();
   if(addedItem.includes(item)){
-    toast.error("Product already in cart");
     return;
   }
   else{
@@ -22,8 +20,12 @@ const addItem = (item) => {
   localStorage.setItem("cartItems", JSON.stringify(addedItem));
 };
 const removeItem = (itemId) => {
-  const addedItem = getAddItem();
-  const updatedItems = addedItem.filter((item) => item.product_id !== itemId);
+  // console.log("recivd itemId",itemId);
+  const addedItem = getAddItem("cartItems");
+  // console.log(addedItem);
+  const updatedItems = addedItem.filter((localId) => localId !== itemId);
+  // console.log("update array",updatedItems);
   localStorage.setItem("cartItems", JSON.stringify(updatedItems));
+  // console.log(updatedItems);
 };
 export { getAddItem, addItem, removeItem };

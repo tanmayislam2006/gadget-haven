@@ -18,6 +18,10 @@ const Gadget = () => {
         item.category
           .toLowerCase()
           .split(" ")
+          .includes(inputValue.toLowerCase()) ||
+        item.product_id
+          .toLowerCase()
+          .split(" ")
           .includes(inputValue.toLowerCase())
     );
     if (filteredData.length > 0) {
