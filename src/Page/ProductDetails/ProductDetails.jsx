@@ -3,6 +3,7 @@ import { useLoaderData, useNavigate, useParams } from "react-router";
 import HeroImage from "../../assets/banner.jpg";
 import { toast } from "react-toastify";
 import { CiHeart } from "react-icons/ci";
+import { addItem } from "../../Utilities/Utilities";
 
 export const cartProduct = [];
 export const wishlist=[];
@@ -13,6 +14,7 @@ const ProductDetails = () => {
   const alldata = useLoaderData();
   const [details, setDetails] = useState({});
 
+
   // Handle side effect
   useEffect(() => {
     const product = alldata.find((item) => item.product_id === productId);
@@ -21,17 +23,20 @@ const ProductDetails = () => {
     }
   }, [alldata, productId]);
 
-  const handleAddToCart = (product) => {
+  const handleAddToCart = (product,ID) => {
     const isProductInCart = cartProduct.find(
       (item) => item.product_id === product.product_id
     );
     if (isProductInCart) {
+
       toast.error("Product already in cart");
     } else {
       cartProduct.push(product);
+      addItem(ID)
       toast.success("Product added  to cart successfully");
     }
   };
+  // const handleAddToLocalStorage=(productId)=
   const handleAddToWishlist=(product)=>{
     const isProductInWishlist = wishlist.find(
       (item) => item.product_id === product.product_id
@@ -88,7 +93,7 @@ const ProductDetails = () => {
               </div>
               <div className="mt-3 flex justify-evenly  gap-4">
                 <button
-                  onClick={() => handleAddToCart(details)}
+                  onClick={() => handleAddToCart(details,details.product_id)}
                   className="cursor-pointer px-4 py-2 rounded-xl text-white font-bold bg-purple-600"
                 >
                   Add To Cart

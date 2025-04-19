@@ -21,14 +21,15 @@ const Gadget = () => {
           .includes(inputValue.toLowerCase())
     );
     if (filteredData.length > 0) {
-        toast.success("Data found successfully")
+      toast.success("Data found successfully");
       setCurrentData(filteredData);
     } else {
-        toast.error("No data found for this search")
+      toast.error("No data found for this search");
       setCurrentData(allData);
     }
     setInputValue("");
   };
+  // onchange
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
   };

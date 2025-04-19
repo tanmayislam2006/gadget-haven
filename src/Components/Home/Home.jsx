@@ -4,6 +4,7 @@ import Gadget from "../Gadget/Gadget";
 import { useLoaderData } from "react-router";
 export const AllDataContext = createContext();
 const Home = () => {
+  // fetch array 
   const allData = useLoaderData();
   const [currentData, setCurrentData] = useState(allData);
   return (
