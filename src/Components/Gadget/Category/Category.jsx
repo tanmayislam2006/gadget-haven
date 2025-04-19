@@ -39,7 +39,8 @@ const Category = () => {
     if (categoryName === "All Products") {
       setCurrentData(allData);
       return;
-    } else {
+    } 
+    else {
       const filertByCategory = allData.filter(
         (item) => item.category === categoryName
       );
