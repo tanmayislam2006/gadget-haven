@@ -2,8 +2,11 @@ import React, { use, useEffect, useState } from "react";
 import HeroImage from "../../assets/banner.jpg";
 import { getAddItem, removeItem } from "../../Utilities/Utilities";
 import { AllDataForDashboardContext } from "../../Page/DashBoard/DasBoard";
+import {  useNavigate } from "react-router";
 
 const Cart = () => {
+
+  const nevigate=useNavigate("")
   const [cartProduct, setCartProduct] = useState([]);
   const allProductsData = use(AllDataForDashboardContext);
   const cartProductFromLocalStorage = getAddItem("cartItems");
@@ -12,12 +15,14 @@ const Cart = () => {
       (cartProductFromLocalStorage || []).includes(item.product_id)
     );
     setCartProduct(matchedCartItems);
-  }, []);
+  }, [allProductsData]);
   // Use state to manage the cart products
 
   const handleRemoveCart = (productId) => {
+
     removeItem(productId);
-    setCartProduct(cartProductFromLocalStorage);
+    const remaingProducts=cartProduct.filter((item) => item.product_id !== productId)
+    setCartProduct(remaingProducts);
   };
 
   return (
@@ -36,7 +41,7 @@ const Cart = () => {
           <button className="mx-5 border-2 rounded-4xl px-4 py-2 text-purple-600 font-bold ">
             Sort By Price
           </button>
-          <button className="px-4 py-2 rounded-3xl bg-purple-600 font-bold text-white cursor-pointer mx-5">
+          <button onClick={()=>nevigate('purchase')} className="px-4 py-2 rounded-3xl bg-purple-600 font-bold text-white cursor-pointer mx-5">
             Purchase
           </button>
         </div>

@@ -15,22 +15,8 @@ const WishList = () => {
 
   return (
     <div className="my-5 mx-4">
-      <div className="flex justify-between items-center my-4">
-        <div className="">
-          <h1 className="text-xl font-bold">Wishlist</h1>
-        </div>
-        <div className="">
-          <span className="mx-4 font-bold text-xl">
-            Total : ${wishList.reduce((total, item) => total + parseInt(item.price),0).toFixed(2)}
-          </span>
-          <button className="mx-5 border-2 rounded-4xl px-4 py-2 text-purple-600 font-bold ">
-            Sort By Price
-          </button>
-          <button className="px-4 py-2 rounded-3xl bg-purple-600 font-bold text-white cursor-pointer mx-5">
-            Purchase
-          </button>
-        </div>
-      </div>
+      <h1 className="text-xl font-bold">Wishlist</h1>
+
       <div className="">
         {wishList.map((cartItem, index) => {
           return (
