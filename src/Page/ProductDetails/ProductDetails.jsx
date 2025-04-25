@@ -21,7 +21,8 @@ const ProductDetails = () => {
       setDetails(product);
     }
   }, [alldata, productId]);
-
+  console.log(details.product_title);
+  document.title=`${details.product_title}`
   const handleAddToCart = (ID) => {
     const cartProductFromLocalStorage = getAddItem("cartItems");
     const isProductInCart = cartProductFromLocalStorage.find(
