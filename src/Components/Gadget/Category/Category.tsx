@@ -1,5 +1,11 @@
 import React, { use, useState } from "react";
 import { AllDataContext } from "../../Home/Home";
+import { Product } from "../../../types/product";
+
+interface AllDataContextType {
+  allData: Product[];
+  setCurrentData: React.Dispatch<React.SetStateAction<Product[]>>;
+}
 
 const Category = () => {
   const categories = [
@@ -34,20 +40,20 @@ const Category = () => {
   ];
 
   const [activeCategory, setActiveCategory] = useState(0);
-  const { allData, setCurrentData } = use(AllDataContext);
-  const handleCategoryChange = (categoryName) => {
+  const { allData, setCurrentData } = use(AllDataContext) as AllDataContextType;
+
+  const handleCategoryChange = (categoryName: string) => {
     if (categoryName === "All Products") {
       setCurrentData(allData);
       return;
-    } 
-    else {
+    } else {
       const filertByCategory = allData.filter(
-        (item) => item.category === categoryName
+        (item: Product) => item.category === categoryName
       );
-
       setCurrentData(filertByCategory);
     }
   };
+
   return (
     <div className="col-span-2">
       {categories.map((category) => (

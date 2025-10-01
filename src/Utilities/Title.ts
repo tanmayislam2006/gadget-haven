@@ -1,14 +1,14 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router";
 
-const formatPath = (path) => {
+const formatPath = (path: string) => {
   if (path === "/") return "Home";
 
   // Remove leading slash and split words by "-"
   const words = path.replace("/", "").split("-");
   
   // Capitalize each word
-  const capitalized = words.map(word => word.charAt(0).toUpperCase() + word.slice(1));
+  const capitalized = words.map((word: string) => word.charAt(0).toUpperCase() + word.slice(1));
   
   return capitalized.join(" ");
 };

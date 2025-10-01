@@ -3,30 +3,37 @@ import HeroImage from "../../assets/banner.jpg";
 import { getAddItem, removeItem } from "../../Utilities/Utilities";
 import { AllDataForDashboardContext } from "../../Page/DashBoard/DasBoard";
 import PaymentIcon from "../../assets/Group.png";
+import { Product } from "../../types/product";
 
 const Cart = () => {
-  const [cartProduct, setCartProduct] = useState([]);
-  const allProductsData = use(AllDataForDashboardContext);
-  const cartProductFromLocalStorage = getAddItem("cartItems");
-  useEffect(() => {
-    const matchedCartItems = (allProductsData || []).filter((item) =>
-      (cartProductFromLocalStorage || []).includes(item.product_id)
-    );
-    setCartProduct(matchedCartItems);
-  }, [allProductsData]);
-  // Use state to manage the cart products
+  const [cartProduct, setCartProduct] = useState<Product[]>([]);
+  const allProductsData = use(AllDataForDashboardContext) as Product[];
+  const cartProductFromLocalStorage = getAddItem("cartItems") as string[];
 
-  const handleRemoveCart = (productId) => {
-    removeItem(productId);
+  useEffect(() => {
+    if (allProductsData && cartProductFromLocalStorage) {
+      const matchedCartItems = allProductsData.filter((item: Product) =>
+        (cartProductFromLocalStorage || []).includes(item.product_id)
+      );
+      setCartProduct(matchedCartItems);
+    }
+  }, [allProductsData]);
+
+  const handleRemoveCart = (productId: string) => {
+    removeItem(productId, "cartItems");
     const remaingProducts = cartProduct.filter(
       (item) => item.product_id !== productId
     );
     setCartProduct(remaingProducts);
   };
-const handlePurchase=()=>{
-  document.getElementById("my_modal_3").showModal()
 
-}
+  const handlePurchase = () => {
+    const modal = document.getElementById("my_modal_3") as HTMLDialogElement | null;
+    if (modal) {
+      modal.showModal();
+    }
+  };
+
   return (
     <div className="my-5 mx-4">
       <div className="flex justify-between items-center my-4">
@@ -37,7 +44,7 @@ const handlePurchase=()=>{
           <span className="mx-4 font-bold text-xl">
             Total : $
             {cartProduct
-              .reduce((total, item) => total + parseInt(item.price), 0)
+              .reduce((total, item) => total + item.price, 0)
               .toFixed(2)}
           </span>
           <button className="mx-5 border-2 rounded-4xl px-4 py-2 text-purple-600 font-bold ">
@@ -102,7 +109,7 @@ const handlePurchase=()=>{
               <p className="text-gray-600 text-center font-semibold my-1">
                 Total:{" "}
                 {cartProduct
-                  .reduce((total, item) => total + parseInt(item.price), 0)
+                  .reduce((total, item) => total + item.price, 0)
                   .toFixed(2)}
               </p>
             </div>

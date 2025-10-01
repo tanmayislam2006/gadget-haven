@@ -3,14 +3,21 @@ import Category from "./Category/Category";
 import AllItems from "./AllItems/AllItems";
 import { AllDataContext } from "../Home/Home";
 import { toast } from "react-toastify";
+import { Product } from "../../types/product";
+
+interface AllDataContextType {
+  allData: Product[];
+  setCurrentData: React.Dispatch<React.SetStateAction<Product[]>>;
+}
 
 const Gadget = () => {
-  const { allData, setCurrentData } = use(AllDataContext);
+  const { allData, setCurrentData } = use(AllDataContext) as AllDataContextType;
   const [inputValue, setInputValue] = useState("");
-  const handleFromSubmit = (e) => {
+
+  const handleFromSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const filteredData = allData.filter(
-      (item) =>
+      (item: Product) =>
         item.product_title
           .toLowerCase()
           .split(" ")
@@ -33,10 +40,11 @@ const Gadget = () => {
     }
     setInputValue("");
   };
-  // onchange
-  const handleInputChange = (e) => {
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
   };
+
   return (
     <div className="mt-[450px]">
       <h1 className="font-bold text-center text-2xl">

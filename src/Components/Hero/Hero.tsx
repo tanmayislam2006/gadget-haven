@@ -5,7 +5,7 @@ import { CiHeart } from "react-icons/ci";
 import { FiShoppingCart } from "react-icons/fi";
 
 const Hero = () => {
-  const navigate = useNavigate("");
+  const navigate = useNavigate();
   return (
     <div className=" relative max-w-7xl mx-auto bg-purple-600 rounded-lg  py-20 ">
       <div className="flex justify-around items-center">
@@ -21,7 +21,7 @@ const Hero = () => {
             <li className=" text-white ">
               <NavLink
                 className={({ isActive }) =>
-                    isActive ? "text-white underline font-bold " : ""
+                  isActive ? "text-white underline font-bold " : ""
                 }
                 to="/"
               >

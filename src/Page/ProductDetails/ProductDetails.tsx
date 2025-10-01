@@ -4,26 +4,24 @@ import HeroImage from "../../assets/banner.jpg";
 import { toast } from "react-toastify";
 import { CiHeart } from "react-icons/ci";
 import { addItem, getAddItem } from "../../Utilities/Utilities";
-
-export const wishlist=[];
+import { Product } from "../../types/product";
 
 const ProductDetails = () => {
-  const navigate = useNavigate(""); 
-  const { productId } = useParams();
-  const alldata = useLoaderData();
-  const [details, setDetails] = useState({});
+  const navigate = useNavigate();
+  const { productId } = useParams<{ productId: string }>();
+  const alldata = useLoaderData() as Product[];
+  const [details, setDetails] = useState<Product | null>(null);
 
-
-  // Handle side effect
   useEffect(() => {
     const product = alldata.find((item) => item.product_id === productId);
     if (product) {
       setDetails(product);
+      document.title = product.product_title;
     }
   }, [alldata, productId]);
-  console.log(details.product_title);
-  document.title=`${details.product_title}`
-  const handleAddToCart = (ID) => {
+
+  const handleAddToCart = (ID: string | undefined) => {
+    if (!ID) return;
     const cartProductFromLocalStorage = getAddItem("cartItems");
     const isProductInCart = cartProductFromLocalStorage.find(
       (item) => item === ID
@@ -31,22 +29,29 @@ const ProductDetails = () => {
     if (isProductInCart) {
       toast.error("Product already in cart");
     } else {
-      addItem(ID)
-      toast.success("Product added  to cart successfully");
+      addItem(ID, "cartItems");
+      toast.success("Product added to cart successfully");
     }
   };
-  // const handleAddToLocalStorage=(productId)=
-  const handleAddToWishlist=(product)=>{
-    const isProductInWishlist = wishlist.find(
-      (item) => item.product_id === product.product_id
+
+  const handleAddToWishlist = (product: Product | null) => {
+    if (!product) return;
+    const wishListItems = getAddItem("wishlistItems");
+    const isProductInWishlist = wishListItems.find(
+      (item) => item === product.product_id
     );
     if (isProductInWishlist) {
       toast.error("Product already in wishlist");
     } else {
-      wishlist.push(product);
-      toast.success("Product added  to wishlist successfully");
+      addItem(product.product_id, "wishlistItems");
+      toast.success("Product added to wishlist successfully");
     }
+  };
+
+  if (!details) {
+    return <div>Loading...</div>;
   }
+
   return (
     <div className="bg-purple-600 py-30 rounded-2xl">
       <div className="my-4 flex flex-col items-center">
@@ -59,7 +64,6 @@ const ProductDetails = () => {
         </p>
       </div>
       <div className="max-w-5xl mx-auto relative">
-        {/* card */}
         <div className="absolute rounded-lg bg-white mb-44">
           <div className="flex gap-3">
             <div className="p-2 w-1/2">
@@ -72,7 +76,7 @@ const ProductDetails = () => {
               <p className="text-lg text-gray-600">Price : $ {details.price}</p>
               <div className="">
                 <button className="bg-green-200 rounded-2xl border my-1 border-green-600 px-3 py-1">
-                  {details.availability === true ? "InStock" : "Out of Stock"}
+                  {details.availability ? "InStock" : "Out of Stock"}
                 </button>
               </div>
               <p className="my-2 text-gray-600">{details.description}</p>
@@ -97,8 +101,8 @@ const ProductDetails = () => {
                 >
                   Add To Cart
                 </button>
-                <div onClick={()=>handleAddToWishlist(details)} className="flex items-center p-3 cursor-pointer rounded-full border-1 border-gray-400">
-                  <button  className="cursor-pointer">
+                <div onClick={() => handleAddToWishlist(details)} className="flex items-center p-3 cursor-pointer rounded-full border-1 border-gray-400">
+                  <button className="cursor-pointer">
                     <CiHeart size={20} />
                   </button>
                 </div>

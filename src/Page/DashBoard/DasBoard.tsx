@@ -1,9 +1,11 @@
 import React, { createContext,  useState } from "react";
 import { Link, Outlet, useLoaderData } from "react-router";
- export const AllDataForDashboardContext = createContext();
+import { Product } from "../../types/product";
+
+export const AllDataForDashboardContext = createContext<Product[] | null>(null);
 
 const DasBoard = () => {
-  const allDataFromLoader = useLoaderData();
+  const allDataFromLoader = useLoaderData() as Product[];
   const [active, setActive] = useState("");
 
   return (
