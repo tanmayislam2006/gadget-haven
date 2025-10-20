@@ -49,9 +49,12 @@ const router = createBrowserRouter([
   },
 ]);
 
-createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <ToastContainer></ToastContainer>
-    <RouterProvider router={router} />
-  </StrictMode>
-);
+const rootElement = document.getElementById("root");
+if (rootElement) {
+  createRoot(rootElement).render(
+    <StrictMode>
+      <ToastContainer></ToastContainer>
+      <RouterProvider router={router} />
+    </StrictMode>
+  );
+}

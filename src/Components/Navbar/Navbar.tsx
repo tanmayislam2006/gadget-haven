@@ -4,7 +4,7 @@ import { CiHeart } from "react-icons/ci";
 import { FiShoppingCart } from "react-icons/fi";
 
 const Navbar = () => {
-  const navigate=useNavigate("")
+  const navigate=useNavigate()
   return (
     <div className="w-full mx-auto bg-purple-50 py-4">
       <div className="flex justify-around items-center">

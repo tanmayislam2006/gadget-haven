@@ -1,12 +1,25 @@
-import React, { useState } from "react";
-import { wishlist as initialWishList } from "../../Page/ProductDetails/ProductDetails";
+import React, { use, useEffect, useState } from "react";
 import HeroImage from "../../assets/banner.jpg";
+import { getAddItem, removeItem } from "../../Utilities/Utilities";
+import { AllDataForDashboardContext } from "../../Page/DashBoard/DasBoard";
+import { Product } from "../../types/product";
 
 const WishList = () => {
-  // Use state to manage the cart products
-  const [wishList, setWishList] = useState(initialWishList);
+  const [wishList, setWishList] = useState<Product[]>([]);
+  const allProductsData = use(AllDataForDashboardContext) as Product[];
+  const wishListFromLocalStorage = getAddItem("wishlistItems");
 
-  const handleRemoveCart = (productId) => {
+  useEffect(() => {
+    if (allProductsData && wishListFromLocalStorage) {
+      const matchedWishListItems = allProductsData.filter((item: Product) =>
+        (wishListFromLocalStorage || []).includes(item.product_id)
+      );
+      setWishList(matchedWishListItems);
+    }
+  }, [allProductsData]);
+
+  const handleRemoveFromWishlist = (productId: string) => {
+    removeItem(productId, "wishlistItems");
     const remainingProduct = wishList.filter(
       (item) => item.product_id !== productId
     );
@@ -34,7 +47,7 @@ const WishList = () => {
                   Price : $ {cartItem.price}
                 </p>
                 <div
-                  onClick={() => handleRemoveCart(cartItem.product_id)}
+                  onClick={() => handleRemoveFromWishlist(cartItem.product_id)}
                   className="my-4"
                 >
                   <button className="px-4 py-2 bg-purple-600 font-bold text-white rounded-xl cursor-pointer">
